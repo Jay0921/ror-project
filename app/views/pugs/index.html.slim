@@ -1,0 +1,23 @@
+h1 Listing pugs
+
+table
+  thead
+    tr
+      th Name
+      th Age
+      th
+      th
+      th
+
+  tbody
+    - @pugs.each do |pug|
+      tr
+        td = pug.name
+        td = pug.age
+        td = link_to 'Show', pug
+        td = link_to 'Edit', edit_pug_path(pug)
+        td = link_to 'Destroy', pug, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Pug', new_pug_path
