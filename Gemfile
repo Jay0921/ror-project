@@ -63,5 +63,5 @@ gem "annotate", "~> 3.0"
 gem "refile", require: "refile/rails", git: "https://github.com/refile/refile.git", ref: 'bba9a4efa6d54fdc3237aaef7dd5bd4ce6ec8f69'
 gem "refile-mini_magick", git: 'https://github.com/refile/refile-mini_magick.git'
 gem "refile-s3"
-
 gem "devise", "~> 4.7"
+gem "pry-byebug", "~> 3.7"
