@@ -65,3 +65,5 @@ gem "refile-mini_magick", git: 'https://github.com/refile/refile-mini_magick.git
 gem "refile-s3"
 gem "devise", "~> 4.7"
 gem "pry-byebug", "~> 3.7"
+
+gem "cancancan", "~> 3.0"
