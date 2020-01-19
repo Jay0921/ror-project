@@ -68,3 +68,6 @@ gem "pry-byebug", "~> 3.7"
 gem "cancancan", "~> 3.0"
 gem "cocoon", "~> 1.2"
 gem "paper_trail", "~> 10.3"
+gem 'flipper', '~> 0.17.1'
+gem 'flipper-ui', '~> 0.17.1'
+gem 'flipper-redis', '~> 0.17.1'

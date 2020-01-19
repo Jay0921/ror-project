@@ -1,2 +1,6 @@
 - title = current_user&.email || 'People'
-h1 Welcome, #{title}
+
+- if Flipper.enabled?(:bello)
+  h1 Bello, #{title}
+- else
+  h1 Welcome, #{title}

@@ -10,6 +10,7 @@ Things you may want to cover:
 - Ruby
 - PostgreSQL
 - Imagemagick
+- Redis
 
 ## Software versions
 - Ruby: 2.6.3
