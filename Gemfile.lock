@@ -298,6 +298,8 @@ GEM
     sshkit (1.20.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    strong_migrations (0.5.1)
+      activerecord (>= 5)
     temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
@@ -366,6 +368,7 @@ DEPENDENCIES
   slim-rails (~> 3.2)
   spring
   spring-watcher-listen (~> 2.0.0)
+  strong_migrations (~> 0.5.1)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
