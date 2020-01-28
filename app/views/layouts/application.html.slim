@@ -3,11 +3,16 @@ html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     title RorProject
+    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    meta content="yes" name="apple-mobile-web-app-capable" /
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    p.notice= notice
-    p.alert= alert
-    = yield
+  body.sidebar-mini.layout-fixed.layout-navbar-fixed
+    .wrapper
+      = render 'layouts/partial/header'
+      = render 'layouts/partial/sidebar'
+      = render 'layouts/partial/content'
+      = render 'layouts/partial/footer'

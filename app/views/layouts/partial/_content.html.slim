@@ -1,0 +1,6 @@
+.content-wrapper.px-4.py-2
+  - if notice.present?
+    .alert.alert-info= notice
+  - if alert.present?
+    .alert.alert-danger= alert
+  = yield
