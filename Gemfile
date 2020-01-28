@@ -74,3 +74,4 @@ gem 'flipper-redis', '~> 0.17.1'
 gem "strong_migrations", "~> 0.5.1"
 gem "react-rails", "~> 2.6"
 gem "rubocop", "~> 0.79.0"
+gem "rails_best_practices", "~> 1.19"
