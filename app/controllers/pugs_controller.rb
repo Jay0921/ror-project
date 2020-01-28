@@ -1,6 +1,6 @@
 class PugsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_pug, only: [:show, :edit, :update, :destroy]
+  before_action :set_pug, only: %i[show edit update destroy]
 
   # GET /pugs
   # GET /pugs.json
@@ -10,8 +10,7 @@ class PugsController < ApplicationController
 
   # GET /pugs/1
   # GET /pugs/1.json
-  def show
-  end
+  def show; end
 
   # GET /pugs/new
   def new
@@ -19,8 +18,7 @@ class PugsController < ApplicationController
   end
 
   # GET /pugs/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /pugs
   # POST /pugs.json
