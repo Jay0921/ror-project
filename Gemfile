@@ -77,3 +77,4 @@ gem "rubocop", "~> 0.79.0"
 gem "rails_best_practices", "~> 1.19"
 gem "better_errors", "~> 2.5"
 gem "binding_of_caller", "~> 0.8.0"
+gem 'dotenv-rails', require: 'dotenv/rails-now'

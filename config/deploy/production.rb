@@ -20,9 +20,9 @@
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-role :app, %w[ubuntu@ec2-18-140-64-26.ap-southeast-1.compute.amazonaws.com]
-role :web, %w[ubuntu@ec2-18-140-64-26.ap-southeast-1.compute.amazonaws.com]
-role :db,  %w[ubuntu@ec2-18-140-64-26.ap-southeast-1.compute.amazonaws.com]
+role :app, "#{ENV["EC2_USER"]}@#{ENV["EC2_ENDPOINT"]}"
+role :web, "#{ENV["EC2_USER"]}@#{ENV["EC2_ENDPOINT"]}"
+role :db,  "#{ENV["EC2_USER"]}@#{ENV["EC2_ENDPOINT"]}"
 set :ssh_options, {
    keys: [File.join(ENV["HOME"], ".ssh", "ZiJie0921.pem")],
    forward_agent: false,

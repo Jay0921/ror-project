@@ -1,3 +1,4 @@
+require 'dotenv/load'
 # Load DSL and set up stages
 require "capistrano/setup"
 
