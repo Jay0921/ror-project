@@ -118,10 +118,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_123203) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
-<<<<<<< HEAD
-  add_foreign_key "taggings", "tags"
-=======
   add_foreign_key "catalogue_products", "catalogues"
   add_foreign_key "catalogue_products", "products"
->>>>>>> * Create CatalogueProduct model
+  add_foreign_key "taggings", "tags"
 end
