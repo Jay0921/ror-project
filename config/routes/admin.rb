@@ -8,4 +8,6 @@ namespace :admin do
       post :run
     end
   end
+  resources :home
+  resources :products, except: [:show]
 end

@@ -15,6 +15,18 @@ ActiveRecord::Schema.define(version: 2020_03_04_123203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "products", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "model"
+    t.text "description"
+    t.string "image_id"
+    t.integer "status", default: 0
+    t.boolean "featured"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_products_on_name", unique: true
+  end
+
   create_table "pugs", force: :cascade do |t|
     t.string "name", null: false
     t.integer "age", default: 0
