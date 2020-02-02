@@ -21,6 +21,10 @@ class Product < ApplicationRecord
   attachment :image, type: :image
   enum status: %i[draft active]
 
+  has_many :catalogue_products, dependent: :destroy
+
   validates :name, :description, presence: true
   validates :name, uniqueness: true
+
+  accepts_nested_attributes_for :catalogue_products, allow_destroy: true, reject_if: :all_blank
 end

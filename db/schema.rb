@@ -15,6 +15,18 @@ ActiveRecord::Schema.define(version: 2020_03_04_123203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "catalogue_products", force: :cascade do |t|
+    t.string "code", null: false
+    t.integer "point", null: false
+    t.bigint "product_id"
+    t.bigint "catalogue_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["catalogue_id"], name: "index_catalogue_products_on_catalogue_id"
+    t.index ["code"], name: "index_catalogue_products_on_code", unique: true
+    t.index ["product_id"], name: "index_catalogue_products_on_product_id"
+  end
+
   create_table "catalogues", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -106,5 +118,10 @@ ActiveRecord::Schema.define(version: 2020_03_04_123203) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+<<<<<<< HEAD
   add_foreign_key "taggings", "tags"
+=======
+  add_foreign_key "catalogue_products", "catalogues"
+  add_foreign_key "catalogue_products", "products"
+>>>>>>> * Create CatalogueProduct model
 end

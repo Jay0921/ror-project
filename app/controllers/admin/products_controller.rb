@@ -8,6 +8,7 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.catalogue_products.build
   end
 
   def edit; end
@@ -49,7 +50,14 @@ class Admin::ProductsController < ApplicationController
       :description,
       :image,
       :featured,
-      :status
+      :status,
+      catalogue_products_attributes: %i[
+        id
+        _destroy
+        code
+        point
+        catalogue_id
+      ]
     )
   end
 end
