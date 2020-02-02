@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 2020_03_04_123203) do
     t.index ["name"], name: "index_catalogues_on_name", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.string "model"
