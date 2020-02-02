@@ -18,6 +18,7 @@
 #
 
 class Product < ApplicationRecord
+  acts_as_taggable_on :categories
   attachment :image, type: :image
   enum status: %i[draft active]
 

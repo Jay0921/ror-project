@@ -1,6 +1,7 @@
 class Admin::ProductsController < ApplicationController
   load_and_authorize_resource
   before_action :set_product, only: %i[edit update destroy]
+  before_action :set_categories, only: [:new, :edit]
 
   def index
     @products = Product.all
@@ -43,6 +44,10 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def set_categories
+    @categories = Category.all
+  end
+
   def product_params
     params.require(:product).permit(
       :name,
@@ -51,6 +56,7 @@ class Admin::ProductsController < ApplicationController
       :image,
       :featured,
       :status,
+      category_list: [],
       catalogue_products_attributes: %i[
         id
         _destroy

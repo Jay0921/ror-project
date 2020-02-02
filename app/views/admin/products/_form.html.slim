@@ -10,6 +10,8 @@
           .form-group
             = f.input :model, input_html: { class: "form-control" }
           .form-group
+            = f.input :category_list, label: "Categories", collection: @categories, value_method: :name, input_html: { multiple: "true", class: "input-tags" }
+          .form-group
             label.string.required * Image
             .product-image
               - if product.image.present?
@@ -42,5 +44,9 @@ javascript:
     new SimpleMDE({
       element: document.getElementById("product_description"),
       spellChecker: false
+    });
+
+    $('#product_category_list').selectize({
+      maxItems: 1
     });
   })();
