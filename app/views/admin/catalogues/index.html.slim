@@ -1,0 +1,22 @@
+.card
+  .card-header
+    h3.card-title All Catalogues
+  .card-body.table-responsive.p-0
+    table.table.table-hover
+      thead
+        tr
+          th ID
+          th Name
+          th
+      tbody
+        - @catalogues.each do |catalogue|
+          tr
+            td= catalogue.id
+            td= catalogue.name
+            td
+              .btn-group
+                = link_to 'Edit', edit_admin_catalogue_path(catalogue), class: "btn btn-info"
+                = link_to 'Delete', admin_catalogue_path(catalogue), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
+
+= link_to 'New Catalogue', new_admin_catalogue_path
+

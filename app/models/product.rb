@@ -7,7 +7,7 @@
 #  featured    :boolean
 #  model       :string
 #  name        :string           not null
-#  status      :integer          default(0)
+#  status      :integer          default("draft")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  image_id    :string

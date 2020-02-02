@@ -10,4 +10,5 @@ namespace :admin do
   end
   resources :home
   resources :products, except: [:show]
+  resources :catalogues, except: [:show]
 end
