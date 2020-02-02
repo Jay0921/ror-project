@@ -322,6 +322,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    selectize-rails (0.12.6)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -429,6 +430,7 @@ DEPENDENCIES
   refile-s3
   rubocop (~> 0.79.0)
   sass-rails (>= 6)
+  selectize-rails (~> 0.12.6)
   selenium-webdriver
   simple_form (~> 5.0)
   slim-rails (~> 3.2)
