@@ -12,5 +12,9 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    = yield
+  body.sidebar-mini.layout-fixed.layout-navbar-fixed
+    .wrapper
+      = render 'layouts/partial/header'
+      = render 'layouts/partial/sidebar'
+      = render 'layouts/partial/content'
+      = render 'layouts/partial/footer'

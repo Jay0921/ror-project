@@ -5,6 +5,7 @@ class ActionDispatch::Routing::Mapper
 end
 
 Rails.application.routes.draw do
+  draw :admin
   devise_for :users
   resources :pugs
   root to: 'home#index'
