@@ -19,5 +19,6 @@ table
         td = link_to 'Destroy', pug, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
+= paginate @pugs
 
 = link_to 'New Pug', new_pug_path

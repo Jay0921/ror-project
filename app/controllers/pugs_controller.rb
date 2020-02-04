@@ -5,7 +5,7 @@ class PugsController < ApplicationController
   # GET /pugs
   # GET /pugs.json
   def index
-    @pugs = Pug.all
+    @pugs = Pug.page(params[:page])
   end
 
   # GET /pugs/1
