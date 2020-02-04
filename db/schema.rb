@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_123203) do
     t.boolean "featured"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "membership_id"
+    t.index ["membership_id"], name: "index_products_on_membership_id"
     t.index ["name"], name: "index_products_on_name", unique: true
   end
 
@@ -135,5 +137,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_123203) do
 
   add_foreign_key "catalogue_products", "catalogues"
   add_foreign_key "catalogue_products", "products"
+  add_foreign_key "products", "memberships"
   add_foreign_key "taggings", "tags"
 end

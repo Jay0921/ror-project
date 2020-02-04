@@ -56,6 +56,7 @@ class Admin::ProductsController < ApplicationController
       :image,
       :featured,
       :status,
+      :membership_id,
       category_list: [],
       catalogue_products_attributes: %i[
         id

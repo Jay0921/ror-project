@@ -7,12 +7,14 @@
         tr
           th ID
           th Name
+          th Number
           th
       tbody
         - @memberships.each do |membership|
           tr
             td= membership.id
             td= membership.name
+            td= membership.products.size
             td
               .btn-group
                 = link_to 'Edit', edit_admin_membership_path(membership), class: "btn btn-info"
