@@ -12,4 +12,5 @@ namespace :admin do
   resources :products, except: [:show]
   resources :catalogues, except: [:show]
   resources :categories, except: [:show]
+  resources :memberships, except: [:show]
 end

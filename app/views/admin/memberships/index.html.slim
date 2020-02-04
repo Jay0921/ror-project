@@ -1,0 +1,21 @@
+.card
+  .card-header
+    h3.card-title All Memberships
+  .card-body.table-responsive.p-0
+    table.table.table-hover
+      thead
+        tr
+          th ID
+          th Name
+          th
+      tbody
+        - @memberships.each do |membership|
+          tr
+            td= membership.id
+            td= membership.name
+            td
+              .btn-group
+                = link_to 'Edit', edit_admin_membership_path(membership), class: "btn btn-info"
+                = link_to 'Delete', admin_membership_path(membership), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
+
+= link_to 'New Membership', new_admin_membership_path
