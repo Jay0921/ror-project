@@ -5,7 +5,7 @@ module Admin
     before_action :set_categories, only: [:new, :edit]
 
     def index
-      @products = Product.all
+      @products = Product.page(params[:page])
     end
 
     def new

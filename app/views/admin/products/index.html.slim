@@ -20,6 +20,8 @@
             td.btn-group
               = link_to 'Edit', edit_admin_product_path(product), class: "btn btn-info"
               = link_to 'Delete', admin_product_path(product), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
+  .card-footer.clearfix
+    = paginate @products
 
 = link_to 'New Product', new_admin_product_path
 

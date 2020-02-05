@@ -19,5 +19,7 @@
               .btn-group
                 = link_to 'Edit', edit_admin_membership_path(membership), class: "btn btn-info"
                 = link_to 'Delete', admin_membership_path(membership), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
+  .card-footer.clearfix
+    = paginate @memberships
 
 = link_to 'New Membership', new_admin_membership_path

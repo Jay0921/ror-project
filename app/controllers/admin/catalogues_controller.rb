@@ -4,7 +4,7 @@ module Admin
     before_action :set_catalogue, only: %i[edit update destroy]
 
     def index
-      @catalogues = Catalogue.all
+      @catalogues = Catalogue.page(params[:page])
     end
 
     def new

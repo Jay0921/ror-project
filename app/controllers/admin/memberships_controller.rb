@@ -4,7 +4,7 @@ module Admin
     before_action :set_membership, only: %i[edit update destroy]
 
     def index
-      @memberships = Membership.all
+      @memberships = Membership.page(params[:page])
     end
 
     def new

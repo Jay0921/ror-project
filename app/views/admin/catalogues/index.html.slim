@@ -17,6 +17,8 @@
               .btn-group
                 = link_to 'Edit', edit_admin_catalogue_path(catalogue), class: "btn btn-info"
                 = link_to 'Delete', admin_catalogue_path(catalogue), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
+  .card-footer.clearfix
+    = paginate @catalogues
 
 = link_to 'New Catalogue', new_admin_catalogue_path
 
