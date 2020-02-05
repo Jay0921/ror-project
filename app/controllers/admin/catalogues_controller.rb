@@ -1,47 +1,49 @@
-class Admin::CataloguesController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_catalogue, only: %i[edit update destroy]
+module Admin
+  class CataloguesController < BaseController
+    load_and_authorize_resource
+    before_action :set_catalogue, only: %i[edit update destroy]
 
-  def index
-    @catalogues = Catalogue.all
-  end
-
-  def new
-    @catalogue = Catalogue.new
-  end
-
-  def edit; end
-
-  def create
-    @catalogue = Catalogue.new(catalogue_params)
-
-    if @catalogue.save
-      redirect_to admin_catalogues_path, notice: 'Catalogue was successfully created.'
-    else
-      render :new
+    def index
+      @catalogues = Catalogue.all
     end
-  end
 
-  def update
-    if @catalogue.update(catalogue_params)
-      redirect_to admin_catalogues_path, notice: 'Catalogue was successfully updated.'
-    else
-      render :edit
+    def new
+      @catalogue = Catalogue.new
     end
-  end
 
-  def destroy
-    @catalogue.destroy
-    redirect_to admin_catalogues_path, notice: 'Catalogue was successfully destroyed.'
-  end
+    def edit; end
 
-  private
+    def create
+      @catalogue = Catalogue.new(catalogue_params)
 
-  def set_catalogue
-    @catalogue = Catalogue.find(params[:id])
-  end
+      if @catalogue.save
+        redirect_to admin_catalogues_path, notice: 'Catalogue was successfully created.'
+      else
+        render :new
+      end
+    end
 
-  def catalogue_params
-    params.require(:catalogue).permit(:name)
+    def update
+      if @catalogue.update(catalogue_params)
+        redirect_to admin_catalogues_path, notice: 'Catalogue was successfully updated.'
+      else
+        render :edit
+      end
+    end
+
+    def destroy
+      @catalogue.destroy
+      redirect_to admin_catalogues_path, notice: 'Catalogue was successfully destroyed.'
+    end
+
+    private
+
+    def set_catalogue
+      @catalogue = Catalogue.find(params[:id])
+    end
+
+    def catalogue_params
+      params.require(:catalogue).permit(:name)
+    end
   end
 end
