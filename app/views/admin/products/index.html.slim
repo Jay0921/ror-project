@@ -1,6 +1,14 @@
 .card
   .card-header
     h3.card-title All Products
+    .card-tools
+      = search_form_for @q, url: admin_products_path do |f|
+        .input-group.input-group-sm style=("width: 500px;")
+          = f.search_field :name_or_description_cont, class: "form-control float-right", placeholder: "Name or description"
+          = f.search_field :catalogue_products_code_cont, class: "form-control float-right", placeholder: "Product code"
+          .input-group-append
+            button.btn.btn-default type="submit"
+              i.fas.fa-search
   .card-body.table-responsive.p-0
     table.table.table-hover
       thead

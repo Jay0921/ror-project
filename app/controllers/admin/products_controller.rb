@@ -5,7 +5,8 @@ module Admin
     before_action :set_categories, only: [:new, :edit]
 
     def index
-      @products = Product.page(params[:page])
+      @q = Product.ransack(params[:q])
+      @products = @q.result.includes(:catalogue_products).page(params[:page])
     end
 
     def new
