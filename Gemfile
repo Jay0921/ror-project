@@ -84,3 +84,4 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem "acts-as-taggable-on", "~> 6.5"
 gem "selectize-rails", "~> 0.12.6"
 gem "kaminari", "~> 1.2"
+gem "ransack", "~> 2.3"
