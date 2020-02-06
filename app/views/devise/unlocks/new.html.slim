@@ -1,0 +1,15 @@
+.main
+  .devise-content
+    .card.card-warning
+      .card-header
+        h3.text-center Resend unlock instructions
+      = simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+        - if f.error_notification.present?
+          .alert.alert-danger= f.error_notification
+        .card-body
+          .form-group
+            = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email", class: "form-control" }
+            = f.full_error :unlock_token
+          = f.button :submit, "Resend unlock instructions", class: "btn btn-success btn-block"
+        .card-footer
+          = render "devise/shared/links"
