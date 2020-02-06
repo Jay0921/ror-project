@@ -1,6 +1,5 @@
 module Admin
   class ProductsController < BaseController
-    load_and_authorize_resource
     before_action :set_product, only: %i[edit update destroy]
     before_action :set_categories, only: [:new, :edit]
 
