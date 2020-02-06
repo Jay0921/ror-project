@@ -35,4 +35,8 @@ class Product < ApplicationRecord
   validates :name, uniqueness: true
 
   accepts_nested_attributes_for :catalogue_products, allow_destroy: true, reject_if: :all_blank
+
+  def product_codes
+    catalogue_products.map(&:code).join(', ')
+  end
 end

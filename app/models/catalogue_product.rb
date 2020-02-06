@@ -24,6 +24,7 @@
 
 class CatalogueProduct < ApplicationRecord
   belongs_to :product, required: false
+  belongs_to :catalogue, required: false
 
   validates :code, :point, presence: true
   validates :code, uniqueness: true

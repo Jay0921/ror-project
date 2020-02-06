@@ -5,20 +5,18 @@
     table.table.table-hover
       thead
         tr
-          th ID
           th Name
+          th Number of Products
           th
       tbody
         - @categories.each do |category|
           tr
-            td= category.id
             td= category.name
+            td= ActsAsTaggableOn::Tag.find_by(name: category.name).taggings_count
             td
               .btn-group
                 = link_to 'Edit', edit_admin_category_path(category), class: "btn btn-info"
                 = link_to 'Delete', admin_category_path(category), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
   .card-footer.clearfix
+    = link_to 'New Cetagory', new_admin_category_path, class: "btn btn-success"
     = paginate @categories
-
-= link_to 'New Cetagory', new_admin_category_path
-

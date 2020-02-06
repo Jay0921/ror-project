@@ -32,7 +32,7 @@
         = f.simple_fields_for :catalogue_products do |catalogue_product|
           = render 'catalogue_product_fields', f: catalogue_product
         .links
-          = link_to_add_association 'Add Catalogue Porduct', f, :catalogue_products
+          = link_to_add_association 'Add Catalogue Porduct', f, :catalogue_products, class: "btn btn-success"
 
 css:
   .product-image img{
