@@ -1,0 +1,22 @@
+- table_height = defined?(height) ? height : 'auto'
+.card
+  .card-header
+    h3.card-title #{object.class.name} Changelog
+  .card-body.table-responsive.p-0 style=("height: #{table_height};")
+    table.table.table-head-fixed.table-history
+      thead
+        tr
+          th style=("width: 10%;") When
+          th style=("width: 10%;") Who
+          th style=("width: 10%;") Changed fields
+          th style=("width: 35%;") Old Value
+          th style=("width: 35%;") New Value
+      tbody
+        - object.versions.reverse.each_with_index do |version, version_index|
+          - version.changeset.each_with_index do |change, i|
+            tr class="#{'column-striped' if version_index.even?}"
+              td = time_ago_in_words(version.created_at) + ' ago' if i.zero?
+              td = version.whodunnit if i.zero?
+              td = change[0].humanize
+              td = render 'value_field', field: change[0], value: change[1][0]
+              td = render 'value_field', field: change[0], value: change[1][1]

@@ -23,6 +23,7 @@
 #
 
 class CatalogueProduct < ApplicationRecord
+  has_paper_trail skip: %i[updated_at]
   belongs_to :product, required: false
   belongs_to :catalogue, required: false
 

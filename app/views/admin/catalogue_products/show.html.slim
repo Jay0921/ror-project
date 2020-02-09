@@ -1,0 +1,18 @@
+.card
+  .card-header
+    h3.card-title #{@catalogue_product.product.name}
+  .card-body
+    .row
+      .col
+        .form-group
+          label Code:
+          input.form-control disabled=true value="#{@catalogue_product.code}"
+        .form-group
+          label Catalogue:
+          input.form-control disabled=true value="#{@catalogue_product.catalogue.name}"
+      .col
+        .form-group
+          label Point:
+          input.form-control disabled=true value="#{@catalogue_product.point}"
+
+= render 'layouts/admin/changelog', object: @catalogue_product

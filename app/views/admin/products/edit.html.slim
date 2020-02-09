@@ -1,3 +1,4 @@
 == render 'form', product: @product
 
-== render 'product_changelog', product: @product
+- if @product.versions.present?
+  = render 'layouts/admin/changelog', object: @product

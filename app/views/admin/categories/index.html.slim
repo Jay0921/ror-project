@@ -12,7 +12,7 @@
         - @categories.each do |category|
           tr
             td= category.name
-            td= ActsAsTaggableOn::Tag.find_by(name: category.name).taggings_count
+            td= ActsAsTaggableOn::Tag.find_by(name: category.name)&.taggings_count
             td
               .btn-group
                 = link_to 'Edit', edit_admin_category_path(category), class: "btn btn-info"

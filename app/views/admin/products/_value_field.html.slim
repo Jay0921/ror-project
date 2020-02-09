@@ -1,0 +1,5 @@
+- case field
+- when 'membership_id'
+  = Membership.find_by(id: value)&.name
+- else
+  = value

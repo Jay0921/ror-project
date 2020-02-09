@@ -41,12 +41,17 @@ css:
 
 javascript:
   (function(){
-    new SimpleMDE({
-      element: document.getElementById("product_description"),
-      spellChecker: false
-    });
 
-    $('#product_category_list').selectize({
+    if ($('.CodeMirror').length == 0) {
+      new SimpleMDE({
+        element: document.getElementById("product_description"),
+        spellChecker: false
+      });
+    }
+
+    if ($('.selectize-control') .length == 0) {
+      $('#product_category_list').selectize({
       maxItems: 1
     });
+    }
   })();

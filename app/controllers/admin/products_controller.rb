@@ -1,11 +1,11 @@
 module Admin
   class ProductsController < BaseController
     before_action :set_product, only: %i[edit update destroy]
-    before_action :set_categories, only: [:new, :edit]
+    before_action :set_categories, only: %i[new edit]
 
     def index
       @q = Product.ransack(params[:q])
-      @products = @q.result.includes(:catalogue_products).page(params[:page])
+      @products = @q.result.includes(:catalogue_products).page(params[:page]).order(:created_at)
     end
 
     def new

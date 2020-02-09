@@ -1,0 +1,7 @@
+- case field
+- when 'product_id'
+  = Product.find_by(id: value)&.name
+- when 'catalogue_id'
+  = Catalogue.find_by(id: value)&.name
+- else
+  = value

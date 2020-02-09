@@ -1,7 +1,7 @@
 .nested-fields
   .card
     .card-header
-      h3.card-title New Catalogue Product
+      h3.card-title Catalogue Product
     .card-body
       .form-group
         = f.input :code, input_html: { class: "form-control" }
@@ -9,5 +9,7 @@
         = f.input :point, input_html: { class: "form-control" }
       .form-group
         = f.input :catalogue_id, collection: Catalogue.all, input_html: { class: "form-control" }
-    .card-footer.text-right
-      = link_to_remove_association "Remove", f, class: 'btn btn-danger'
+    .card-footer
+      - if f.object.persisted?
+        = link_to 'Changelog', admin_catalogue_product_path(f.object), class: "btn btn-info"
+      = link_to_remove_association "Remove", f, class: 'btn btn-danger float-right'
