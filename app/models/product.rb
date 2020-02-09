@@ -24,6 +24,7 @@
 #
 
 class Product < ApplicationRecord
+  has_paper_trail skip: %i[updated_at image_id]
   acts_as_taggable_on :categories
   attachment :image, type: :image
   enum status: %i[draft active]
