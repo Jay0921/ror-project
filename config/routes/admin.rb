@@ -1,3 +1,4 @@
 namespace :admin do
-  resources :home
+  root to: "admin#index"
+  get '/second', to: "admin#second"
 end
