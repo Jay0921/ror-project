@@ -5,6 +5,9 @@ class ActionDispatch::Routing::Mapper
 end
 
 Rails.application.routes.draw do
+
+  mount External::API          => "/"
+
   draw :admin
   devise_for :users, controllers: {
     confirmations: 'users/confirmations'
@@ -12,6 +15,8 @@ Rails.application.routes.draw do
   resources :pugs
   root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  mount GrapeSwaggerRails::Engine => '/swagger'
 
   constraints CanAccessFlipperUI do
     mount Flipper::UI.app(Flipper) => '/flipper'
