@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_back(fallback_location: root_path, alert: exception.message)
   end
+
+  def after_sign_in_path_for(resource)
+    admin_root_path
+  end
 end
