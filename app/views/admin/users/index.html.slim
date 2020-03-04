@@ -1,0 +1,31 @@
+.card
+  .card-header
+    h3.card-title All Users
+    .card-tools
+      = search_form_for @q, url: admin_users_path do |f|
+        .input-group.input-group-sm style=("width: 200px;")
+          = f.search_field :email_cont, class: "form-control float-right", placeholder: "Email"
+          .input-group-append
+            button.btn.btn-default type="submit"
+              i.fas.fa-search
+  .card-body.table-responsive.p-0
+    table.table.table-hover
+      thead
+        tr
+          th ID
+          th Email
+          th Role
+          th Last sign in at
+          th
+      tbody
+        - @users.each do |user|
+          tr
+            td= user.id
+            td= user.email
+            td= user.role
+            td= user.last_sign_in_at
+            td
+              .btn-group
+                = link_to 'Delete', admin_user_path(user), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
+  .card-footer.clearfix
+    = paginate @users
