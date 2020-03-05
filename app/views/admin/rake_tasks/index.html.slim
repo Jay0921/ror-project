@@ -1,0 +1,20 @@
+.card
+  .card-header
+    h3.card-title Rake Tasks
+  .card-body.table-responsive.p-0
+    table.table.table-hover
+      thead
+        tr
+          th
+          th Name
+          th Description
+          th
+          th
+      tbody
+        - @tasks.each_with_index do |task, index|
+          tr
+            td= index + 1
+            td= task.name
+            td= task.full_comment
+            td= link_to 'View logs', admin_rake_task_path(task.name)
+            td= link_to 'Run task', run_admin_rake_tasks_path(task_name: task.name), method: :post

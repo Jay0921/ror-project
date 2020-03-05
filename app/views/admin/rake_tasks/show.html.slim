@@ -1,0 +1,19 @@
+.card
+  .card-header
+    h3.card-title Rake Tasks
+  .card-body.table-responsive.p-0
+    - if @task.values.count > 0
+      table.table.table-hover
+        thead
+          tr
+            th #
+            th Admin
+            th Time
+            th Message
+        tbody
+          - @task.values.reverse.each_with_index do |value, index|
+            tr
+              td= index + 1
+              td= value[:user_name]
+              td= l(Time.at(value[:created_at]).to_datetime, format: :long)
+              td= value[:message]
