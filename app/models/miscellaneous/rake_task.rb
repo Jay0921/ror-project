@@ -3,7 +3,8 @@ module Miscellaneous
     attr_reader :user_name, :task_name
 
     def self.all(namespace = 'patchwork')
-      Rails.application.load_tasks
+      Rails.application.load_tasks unless Object.const_defined?('Rake::Task')
+      Rails.application.load_tasks if Rake::Task.tasks.select { |t| t.name.include?(namespace) }.empty?
       Rake::Task.tasks.select { |t| t.name.include?(namespace) }
     end
 
