@@ -1,6 +1,6 @@
 module External
   class API < Grape::API
-    prefix "api/external"
+    prefix 'api/external'
 
     format :json
     default_format :json

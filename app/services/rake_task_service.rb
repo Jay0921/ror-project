@@ -1,6 +1,6 @@
 module RakeTaskService
   extend ActiveSupport::Concern
-  attr_accessor :task, :user_email, :task_name
+  attr_accessor :user_email, :task_name
 
   class_methods do
     def call(*args)
@@ -8,8 +8,8 @@ module RakeTaskService
       klass.user_email = args[0][:user_email]
       klass.task_name = args[0][:task_name]
 
-      raise "user_email must be provided" unless klass.user_email.present?
-      raise "task_name must be provided" unless klass.task_name.present?
+      raise 'user_email must be provided' unless klass.user_email.present?
+      raise 'task_name must be provided' unless klass.task_name.present?
 
       klass.call
     end

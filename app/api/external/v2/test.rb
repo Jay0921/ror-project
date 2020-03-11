@@ -1,7 +1,7 @@
 module External
   module V2
     class Test < Grape::API
-      version "v2"
+      version 'v2'
 
       get :test do
         {

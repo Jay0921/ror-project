@@ -1,5 +1,16 @@
 inherit_from: .rubocop_todo.yml
 
+AllCops:
+  Exclude:
+    - "db/schema.rb"
+    - "db/**/*"
+    - "config/**/*"
+    - "lib/**/*"
+    - "bin/**/*"
+    - "node_modules/**/*"
+    - "Gemfile"
+    - "Capfile"
+
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
   Enabled: false
