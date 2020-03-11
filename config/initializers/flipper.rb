@@ -6,9 +6,3 @@ Flipper.configure do |config|
     Flipper.new(adapter)
   end
 end
-
-class CanAccessFlipperUI
-  def self.matches?(request)
-    true
-  end
-end

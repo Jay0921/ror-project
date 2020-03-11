@@ -18,10 +18,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  mount GrapeSwaggerRails::Engine => '/swagger'
-  mount Sidekiq::Web => "/sidekiq"
-
-  constraints CanAccessFlipperUI do
+  constraints AccessConstraint do
+    mount GrapeSwaggerRails::Engine => '/swagger'
+    mount Sidekiq::Web => "/sidekiq"
     mount Flipper::UI.app(Flipper) => '/flipper'
   end
 end
