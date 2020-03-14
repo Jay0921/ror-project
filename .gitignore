@@ -33,3 +33,6 @@ yarn-debug.log*
 # Ignore ENV
 .env
 .env.local
+
+# Ignore backups
+/db/backups
