@@ -1,4 +1,5 @@
 require "sidekiq/web"
+require 'sidekiq/cron/web'
 
 class ActionDispatch::Routing::Mapper
   def draw(routes_name)

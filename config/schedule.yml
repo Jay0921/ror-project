@@ -1,0 +1,5 @@
+test_cron_job:
+  cron: "0 0/1 * * *"
+  class: "HardWorker"
+  queue: critical
+  args: ["John Doe"]
