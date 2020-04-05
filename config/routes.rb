@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   draw :admin
   devise_for :users, controllers: {
-    confirmations: 'users/confirmations'
+    confirmations: 'user/confirmations'
   }
   resources :pugs
   root to: 'home#index'
