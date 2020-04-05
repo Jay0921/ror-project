@@ -12,11 +12,16 @@ Rails.application.routes.draw do
   mount External::API          => "/"
 
   draw :admin
+  # root to: 'home#index'
+
+  devise_scope :user do
+    get '/', to: 'devise/sessions#new'
+  end
   devise_for :users, controllers: {
     confirmations: 'user/confirmations'
   }
+
   resources :pugs
-  root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   constraints AccessConstraint do
