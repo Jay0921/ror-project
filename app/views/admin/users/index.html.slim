@@ -12,7 +12,6 @@
     table.table.table-hover
       thead
         tr
-          th ID
           th Email
           th Role
           th Last sign in at
@@ -20,7 +19,6 @@
       tbody
         - @users.each do |user|
           tr
-            td= user.id
             td= user.email
             td= user.role
             td= user.last_sign_in_at
@@ -28,4 +26,5 @@
               .btn-group
                 = link_to 'Delete', admin_user_path(user), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
   .card-footer.clearfix
-    = paginate @users
+    = render partial: 'shared/pagination', locals: { pagy: @pagy }
+    == pagy_info(@pagy)

@@ -4,7 +4,8 @@ module Admin
 
     def index
       @q = User.ransack(params[:q])
-      @users = @q.result.order('id ASC').page(params[:page])
+      @userss = @q.result.order('id ASC').page(params[:page])
+      @pagy, @users = pagy(@q.result.order('id ASC'))
     end
 
     def destroy
