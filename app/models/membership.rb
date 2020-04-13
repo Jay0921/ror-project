@@ -17,5 +17,5 @@ class Membership < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  has_many :products
+  has_many :products, dependent: :restrict_with_error
 end

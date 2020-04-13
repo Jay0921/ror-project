@@ -16,7 +16,7 @@ module Admin
       @catalogue = Catalogue.new(catalogue_params)
 
       if @catalogue.save
-        redirect_to admin_catalogues_path, notice: 'Catalogue was successfully created.'
+        redirect(notice: 'Catalogue was successfully created.')
       else
         render :new
       end
@@ -24,15 +24,18 @@ module Admin
 
     def update
       if @catalogue.update(catalogue_params)
-        redirect_to admin_catalogues_path, notice: 'Catalogue was successfully updated.'
+        redirect(notice: 'Catalogue was successfully updated.')
       else
         render :edit
       end
     end
 
     def destroy
-      @catalogue.destroy
-      redirect_to admin_catalogues_path, notice: 'Catalogue was successfully destroyed.'
+      if @catalogue.destroy
+        redirect(notice: 'Catalogue was successfully destroyed.')
+      else
+        redirect(alert: @catalogue.errors.full_messages.join(', '))
+      end
     end
 
     private
@@ -43,6 +46,14 @@ module Admin
 
     def catalogue_params
       params.require(:catalogue).permit(:name)
+    end
+
+    def redirect(options)
+      if options[:notice].present?
+        redirect_to admin_catalogues_path, notice: options[:notice]
+      else
+        redirect_to admin_catalogues_path, alert: options[:alert]
+      end
     end
   end
 end

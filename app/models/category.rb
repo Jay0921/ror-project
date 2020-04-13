@@ -15,4 +15,15 @@
 class Category < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  before_destroy :check_for_products, prepend: true
+
+  private
+
+  def check_for_products
+    if ActsAsTaggableOn::Tag.find_by(name: name)&.taggings_count.to_i > 0
+      errors.add(:base, "cannot delete category while products exist")
+    end
+    return false
+  end
 end

@@ -16,5 +16,5 @@ class Catalogue < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  has_many :catalogue_products
+  has_many :catalogue_products, dependent: :restrict_with_error
 end
