@@ -13,9 +13,10 @@
 ActiveRecord::Schema.define(version: 2020_03_04_123203) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "pugs", force: :cascade do |t|
+  create_table "pugs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.integer "age", default: 0
     t.datetime "created_at", precision: 6, null: false
@@ -49,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_123203) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

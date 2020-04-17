@@ -67,5 +67,6 @@ Rails.application.configure do
     g.helper            false
     g.test_framework    nil
     g.jbuilder          false
+    g.orm :active_record, primary_key_type: :uuid
   end
 end
