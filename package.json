@@ -11,7 +11,7 @@
     "admin-lte": "^3.0.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "cocoon": "github:nathanvda/cocoon",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "overlayscrollbars": "^1.10.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
