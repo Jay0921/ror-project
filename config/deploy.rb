@@ -9,7 +9,8 @@ set :rbenv_ruby, '2.6.3'
 set :rbenv_type, :user
 
 # Default branch is :master
-set :branch, `git rev-parse --verify HEAD`.chomp
+set :branch, 'hsbc-rewards'
+# set :branch, `git rev-parse --verify HEAD`.chomp
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name

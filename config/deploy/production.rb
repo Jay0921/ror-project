@@ -24,7 +24,7 @@ role :app, "#{ENV["EC2_USER"]}@#{ENV["EC2_ENDPOINT"]}"
 role :web, "#{ENV["EC2_USER"]}@#{ENV["EC2_ENDPOINT"]}"
 role :db,  "#{ENV["EC2_USER"]}@#{ENV["EC2_ENDPOINT"]}"
 set :ssh_options, {
-   keys: [File.join(ENV["HOME"], ".ssh", "ZiJie0921.pem")],
+   keys: [File.join(ENV["HOME"], ".ssh", "JAY.pem")],
    forward_agent: false,
    auth_methods: %w[publickey]
  }
