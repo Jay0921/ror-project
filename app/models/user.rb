@@ -40,5 +40,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
 
-  enum role: %i[guest user admin]
+  enum role: %i[guest user admin super_admin]
 end
