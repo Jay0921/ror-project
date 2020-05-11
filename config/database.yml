@@ -81,5 +81,7 @@ test:
 production:
   <<: *default
   database: hsbc_rewards_production
-  username: ubuntu
-  password: <%= ENV['hsbc_rewards_DATABASE_PASSWORD'] %>
+  username: hsbc_rewards
+  password: password
+  host: hsbc-rewards.cwh8rssyrh3h.us-west-2.rds.amazonaws.com
+  post: 5432
