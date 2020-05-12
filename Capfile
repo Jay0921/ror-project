@@ -18,3 +18,22 @@ require "capistrano/passenger"
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
+
+namespace :deploy do
+  desc "Performs first deploy to a server"
+  task :initial do
+    before "deploy:migrate", "deploy:create_db"
+    invoke "deploy"
+  end
+
+  desc "Runs rails db:setup"
+  task :create_db do
+    on roles(:db) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rails, "db:setup SAFETY_ASSURED=1"
+        end
+      end
+    end
+  end
+end

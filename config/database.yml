@@ -81,7 +81,7 @@ test:
 production:
   <<: *default
   database: hsbc_rewards_production
-  username: hsbc_rewards
-  password: password
-  host: hsbc-rewards.cwh8rssyrh3h.us-west-2.rds.amazonaws.com
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOST'] %>
   post: 5432
