@@ -78,7 +78,7 @@ gem "strong_migrations", "~> 0.5.1"
 gem "react-rails", "~> 2.6"
 gem "rubocop", "~> 0.79.0"
 gem "rails_best_practices", "~> 1.19"
-gem "better_errors", "~> 2.5"
+gem "better_errors", "~> 2.8"
 gem "binding_of_caller", "~> 0.8.0"
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem "acts-as-taggable-on", "~> 6.5"
